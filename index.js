@@ -1,18 +1,11 @@
- 
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
 
-// 接收多维表格调用的接口
-app.get('/api/hello', (req, res) => {
-  const name = req.query.name || '多维表格';
-  res.json({
-    success: true,
-    message: `你好，${name}！这是一个插件服务示例`,
-    timestamp: new Date().toISOString()
-  });
-});
-
-app.listen(port, () => {
-  console.log(`服务运行在 http://localhost:${port}`);
-});
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
